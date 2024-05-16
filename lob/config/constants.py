@@ -48,7 +48,7 @@ SAVING_RESULTS_MSG = "Saving results to {output_file_path}"
 LOB_SUCCESS_MSG = "\nLimiting order book created successfully in {total:.2f} seconds.\n"
 # Default file names
 DEFAULT_INPUT_FILEPATH = 'data/AKBNK.E.csv'
-DEFAULT_LOB_FILEPATH = 'data/output/AKBNK_LOB.csv'
+DEFAULT_LOB_FILEPATH = 'data/output/lob/AKBNK_LOB.csv'
 # Argument descriptions
 ARGUMENT_PARSER_DESCRIPTION = "Process order book data."
 INPUT_FILE_ARGUMENT_HELP = 'Input CSV file path'

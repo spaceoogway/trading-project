@@ -227,7 +227,7 @@ def create_bollinger_plot(df, strategy_values):
     ax1.set_ylabel("Price (TL)", fontsize=14)
     # make lines in the legend thicker
     # Get the legend object
-    legend = ax1.legend()
+    legend = ax1.legend(loc='upper right')
     # Set the linewidth of the lines in the legend
     for line in legend.get_lines():
         line.set_linewidth(2)
@@ -236,13 +236,13 @@ def create_bollinger_plot(df, strategy_values):
     ax2.plot(df["rounded_time"], df["balance_qty"], label="Stock Balance",
              color="darkorange", linewidth=1.2, alpha=0.8)
     ax2.set_ylabel("Stock (Quantity)", fontsize=14)
-    ax2.legend()
+    ax2.legend(loc='upper right')
     # Plot the tl balance in the third axis of the plot
     ax3.plot(df["rounded_time"], df["balance_tl"], label="Liquidity Balance",
              color="darkgreen", linewidth=1.2, alpha=0.8)
     ax3.set_ylabel("Liquidity (TL)", fontsize=14)
     # Fill the area under the line
-    ax3.legend()
+    ax3.legend(loc='upper right')
     # Plot the balance and quantity changes in the second axis of the plot
     total_value = (df["balance_tl"] + (df["balance_qty"] * df["close"]))
     total_value_max = total_value.max()
@@ -259,7 +259,7 @@ def create_bollinger_plot(df, strategy_values):
     ax4.xaxis.set_major_locator(mdates.MinuteLocator(
         interval=30))  # Adjust interval as needed
     ax4.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))
-    ax4.legend()
+    ax4.legend(loc='upper right')
 
     # Add a text box with the initial and final balance
     # Get the initial and final balance
@@ -334,11 +334,11 @@ def main():
     lob_df = lob_df[:-500].copy()
     # Create the bid and ask DataFrames
     strategy_values = {
-        "window": "2h",
-        "multiplier": 1.2,
+        "window": "1h",
+        "multiplier": 2,
         "initial_tl": 100000,
         "initial_qty": 10000,
-        "max_order_qty": 1000,
+        "max_order_qty": 5000,
         "order_delay": "1min",
         "stop_buy_time": "10min"
     }
